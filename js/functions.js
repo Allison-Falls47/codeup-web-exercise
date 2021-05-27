@@ -32,22 +32,22 @@ console.log(helloMessage)
 //alert(message)
 
 /**
- * TODO:
+
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-
+var myName = "Allison"
+console.log(sayHello(myName));
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
-
 /**
- * TODO:
+
  * Create a function called 'isTwo' that takes a number as a parameter.
  * The function should return a boolean value based on whether or not the passed
  * number is the number 2.
- *
+
  * Example
  * > isTwo(1) // returns false
  * > isTwo(2) // returns true
@@ -60,6 +60,18 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
+function isTwo(number){
+   if(number / 2 == 1){
+      return true
+   }
+   else{
+      return false
+   }
+}
+console.log(isTwo(random))
+
+
+
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -71,7 +83,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-
+function calculateTip(numb1, numb2) {
+   return numb1 + numb2; //numb 1 = percentage, numb 2 = total bill
+}
+console.log(calculateTip(.25, 35.56).toFixed(2));
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -93,3 +108,6 @@ var random = Math.floor((Math.random() * 3) + 1);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+function applyDiscount (numb1, numb2) {
+   return numb1 - (numb1*numb2)
+}
