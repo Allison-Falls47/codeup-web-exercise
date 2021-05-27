@@ -19,3 +19,8 @@ alert("You will receive a total of: " + ((400*6) + (380*4) + (350*10)) + " from 
 var full = confirm("is the class full?");
 var conflict = confirm("is there conflict?");
 alert("You can enroll in this class!" + (!full && !conflict));
+
+var premium = confirm("are you a premium member?");
+var items = Number(prompt("Have you bought two or more items?"));
+var valid = confirm("is the coupon valid?")
+alert("You can use the offer!" + ((!valid) && (premium || (items > 2))))
