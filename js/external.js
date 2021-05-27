@@ -6,8 +6,16 @@ console.log("Hello World");
 console.log("Hello Polaris");
 console.log("Hello from external Javascript");
 alert("Welcome to my Website")
-var confirmed = confirm('Are you sure you want to do XYZ?');
-console.log(confirmed); // will be either true or false
 
 var userInput = prompt('Whats your favorite color?');
-console.log('The user entered: ' + userInput);
+alert("Great, " + userInput + " is my favorite color too!")
+
+//new stuff v
+
+alert("The price for the movie is:" + (3+5+1)*3);
+
+alert("You will receive a total of: " + ((400*6) + (380*4) + (350*10)) + " from all your hours");
+
+var full = confirm("is the class full?");
+var conflict = confirm("is there conflict?");
+alert("You can enroll in this class!" + (!full && !conflict));
