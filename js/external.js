@@ -23,4 +23,4 @@ alert("You can enroll in this class!" + (!full && !conflict));
 var premium = confirm("are you a premium member?");
 var items = Number(prompt("Have you bought two or more items?"));
 var valid = confirm("is the coupon valid?")
-alert("You can use the offer!" + ((!valid) && (premium || (items > 2))))
+alert("You can use the offer!" + ((valid) && (premium || (items > 2))))
