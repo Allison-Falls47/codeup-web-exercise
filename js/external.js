@@ -4,10 +4,10 @@
 
 console.log("Hello World");
 console.log("Hello Polaris");
-
-//alert("Hello Folks")
+console.log("Hello from external Javascript");
+alert("Welcome to my Website")
 var confirmed = confirm('Are you sure you want to do XYZ?');
 console.log(confirmed); // will be either true or false
 
-var userInput = prompt('Please type something:');
+var userInput = prompt('Whats your favorite color?');
 console.log('The user entered: ' + userInput);
