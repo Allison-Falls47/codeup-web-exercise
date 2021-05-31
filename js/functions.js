@@ -32,7 +32,6 @@ console.log(helloMessage)
 //alert(message)
 
 /**
-
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
@@ -47,7 +46,6 @@ var random = Math.floor((Math.random() * 3) + 1);
  * Create a function called 'isTwo' that takes a number as a parameter.
  * The function should return a boolean value based on whether or not the passed
  * number is the number 2.
-
  * Example
  * > isTwo(1) // returns false
  * > isTwo(2) // returns true
@@ -73,7 +71,6 @@ console.log(isTwo(random))
 
 
 /**
- * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
  * restaurant. The function should accept a tip percentage and the total of the
  * bill, and return the amount to tip
@@ -83,19 +80,20 @@ console.log(isTwo(random))
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-function calculateTip(numb1, numb2) {
-   return numb1 + numb2; //numb 1 = percentage, numb 2 = total bill
+function calculateTip(tipAmount, totalAmount) {
+   return tipAmount * totalAmount;
 }
 console.log(calculateTip(.25, 35.56).toFixed(2));
 /**
- * TODO:
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+var moneyInput = prompt ("Enter Total Bill: ");
+var tipInput = prompt ("Enter Tip Percentage: ");
 
+alert("Your Tip Amount: " + calculateTip(tipInput, moneyInput))
 /**
- * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
  * (before a discount is applied), and a discount percentage (a number between 0
  * and 1). It should return the result of applying the discount to the original
@@ -111,3 +109,8 @@ console.log(calculateTip(.25, 35.56).toFixed(2));
 function applyDiscount (numb1, numb2) {
    return numb1 - (numb1*numb2)
 }
+var originalPrice = 150;
+var discountPercent = .25;
+
+console.log(applyDiscount(originalPrice, discountPercent))
+
