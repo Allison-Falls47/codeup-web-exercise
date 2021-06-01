@@ -141,7 +141,8 @@ if (confirmed === true) {
     } else {
         userNumber = parseFloat(userNumber);
         if (userNumber % 2 == 0) {
-        alert("Your number is even");
+            alert("Your number is even");
+        }else{
         alert("Your number is odd")  ;
         }
         alert ("100 + your number is :" + Number(userNumber+100));
