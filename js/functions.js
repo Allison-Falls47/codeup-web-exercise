@@ -10,7 +10,7 @@
  */
 
 function sayHello(name) {
-   return "Hello, " + name;
+   return "Hello, " + name + "!";
 }
 var name = "codeup!";
 var message = sayHello(name)
@@ -83,7 +83,7 @@ console.log(isTwo(random))
 function calculateTip(tipAmount, totalAmount) {
    return tipAmount * totalAmount;
 }
-console.log(calculateTip(.25, 35.56).toFixed(2));
+console.log(calculateTip(.25, 25.50).toFixed(2));
 /**
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
@@ -92,7 +92,7 @@ console.log(calculateTip(.25, 35.56).toFixed(2));
 var moneyInput = prompt ("Enter Total Bill: ");
 var tipInput = prompt ("Enter Tip Percentage: ");
 
-alert("Your Tip Amount: " + calculateTip(tipInput, moneyInput))
+alert("Your Tip Amount: " + calculateTip(tipInput, moneyInput).toFixed(2));
 /**
  * Create a function named `applyDiscount`. This function should accept a price
  * (before a discount is applied), and a discount percentage (a number between 0
