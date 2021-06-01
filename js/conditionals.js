@@ -73,7 +73,6 @@ alert(analyzeColor(colorUser));
 /* ########################################################################## */
 
 /**
- * TODO:
  * Suppose there's a promotion in Walmart, each customer is given a randomly
  * generated "lucky number" between 0 and 5. If your lucky number is 0 you have
  * no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
@@ -91,17 +90,33 @@ alert(analyzeColor(colorUser));
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-
+function calculateTotal (luckyNumber, totalAmount) {
+if (luckyNumber === 0) {
+     return totalAmount;
+} else if (luckyNumber === 1) {
+    return (totalAmount * .10);
+ } else if (luckyNumber === 2) {
+    return (totalAmount  * .25); }
+   else if (luckyNumber === 3) {
+    return (totalAmount  * .35);}
+   else if (luckyNumber === 4) {
+    return (totalAmount  * .50);}
+   else if (luckyNumber === 5); {
+    return 0;}
+}
+console.log(calculateTotal(4, 100).toFixed(2));
 /**
- * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
  * Prompt the user for their total bill, then use your `calculateTotal` function
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
-
+ var luckyNumber = Math.floor(Math.random() * 6);
+var totalBill = prompt("Please Enter your Total Bill")
+alert("Your lucky number was " +luckyNumber)
+alert("Your price before the discount was " + totalBill)
+alert("Your price after the discount is " + calculateTotal(luckyNumber, totalBill));
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
