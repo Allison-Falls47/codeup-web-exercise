@@ -17,3 +17,16 @@ for (let ev = 1; ev<=10; ev++) {
         }
 
 }
+
+function tree(){
+    for (let x=1; x<10; x++){
+
+        var number="";
+        number=x;
+        for (let y = 1; y<x; y++){
+            number=number+x.toString();
+        }
+        console.log(number.toString() );
+    }
+}
+tree();
