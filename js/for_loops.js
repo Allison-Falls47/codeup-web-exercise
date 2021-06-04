@@ -8,12 +8,12 @@ console.log(showMultiplicationTable(7))
 
 
 
-for (let ev = 0; ev<=10; ev++) {
-    random = ()(Math.random()* (200 + 1));}{
-    if (ev % 2 !== 0) {
-        console.log(ev + " is odd");}
+for (let ev = 1; ev<=10; ev++) {
+    random = Math.floor(Math.random()*(200 - 1) +1);
+    if (random % 2 !== 0) {
+        console.log(random + " is odd");}
         else {
-            console.log(ev + " is even")
+            console.log(random + " is even")
         }
 
 }
