@@ -30,6 +30,9 @@ function tree(){
     }
 }
 tree();
+//for (var index = 1,number = ""; index <10;index){     ^ other way of doing this
+//number += "1";
+//console.log(index*number)}
 
 for (var w = 100; w >= 10; w-=5){
     console.log(w)
