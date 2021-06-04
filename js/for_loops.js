@@ -30,3 +30,8 @@ function tree(){
     }
 }
 tree();
+
+for (var w = 100; w >= 10; w-=5){
+    console.log(w)
+}
+console.log(w)
