@@ -118,7 +118,7 @@ alert("Your lucky number was " +luckyNumber)
 alert("Your price before the discount was " + totalBill)
 alert("Your price after the discount is " + calculateTotal(luckyNumber, totalBill));
 /**
- * TODO:
+
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
  * would like to enter a number. If they click 'Ok', prompt the user for a
  * number, then use 3 separate alerts to tell the user:
