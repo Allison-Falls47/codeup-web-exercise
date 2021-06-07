@@ -36,7 +36,6 @@ console.log(names[3]);
         console.log('The name is ' + names + '.');
     });
     /**
-     * TODO:
      * Create the following three functions, each will accept an array and
      * return an an element from it
      * - first: returns the first item in the array
@@ -48,8 +47,24 @@ console.log(names[3]);
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    names.forEach(function(names) {
-        console.log('The name is ' + names + '.');
-    });
+
+    function first(array){
+        return array[0];
+    }
+console.log(first(names));
+
+
+    function second(array){
+        return array[1];
+    }
+    console.log(second(names));
+
+
+    function last(array){
+        return array[3];
+    }
+    console.log(last(names));
+
 
 })();
+
