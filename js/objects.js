@@ -29,7 +29,7 @@ person.sayHello = function(){
 };
     console.log(person.sayHello());
 
-    /** TODO:
+    /**
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
      * discount. Write a JS program, using conditionals, that logs to the
@@ -46,9 +46,18 @@ person.sayHello = function(){
      var shoppers = [
          {name: 'Cameron', amount: 180},
         {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
+        {name: 'George', amount: 320},
      ];
-
+function discount(){
+    shoppers.forEach(function(shopper) {
+     if (shopper.amount >200){
+         console.log(shopper.name + " " + "amount spent: " + shopper.amount);
+         console.log("You got a 12% discount!")
+         console.log("amount after discount: " + ((shopper.amount)-(shopper.amount * .12)));
+     }
+    });
+}
+discount();
     /**
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
