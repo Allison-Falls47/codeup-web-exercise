@@ -2,7 +2,6 @@
     "use strict";
 
     /**
-     * TODO:
      * Create an object with firstName and lastName properties that are strings
      * with your first and last name. Store this object in a variable named
      * `person`.
@@ -11,9 +10,13 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-
+ var person = {
+     firstName: "Allison",
+     lastName: "Falls"
+    };
+    console.log(person.firstName)
+    console.log(person.lastName)
     /**
-     * TODO:
      * Add a sayHello method to the person object that returns a greeting using
      * the firstName and lastName properties.
      * console.log the returned message to check your work
@@ -21,6 +24,10 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+person.sayHello = function(){
+    return("Hello from " + person.firstName + " " + person.lastName + "!");
+};
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -36,13 +43,13 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+     var shoppers = [
+         {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+     ];
 
-    /** TODO:
+    /**
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
      * property. The author property should be an object with properties
@@ -54,6 +61,46 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+var books = [
+        {
+            title: "Treehouse",
+            author: {
+                firstName: "Joe",
+                lastName: "Smith"
+            }
+        },
+        {
+            title: "Lonely Road",
+            author: {
+                firstName: "Steel",
+                lastName: "Dan"
+            }
+        },
+        {
+            title: "Plane",
+            author: {
+                firstName: "Aero",
+                lastName: "Smithy"
+            }
+        },
+        {
+            title: "The Path to You",
+            author: {
+                firstName: "Nathan",
+                lastName: "Fielder"
+            }
+        },
+        {
+            title: "The book about books",
+            author: {
+                firstName: "Timmy",
+                lastName: "Thomas"
+            }
+        }
+    ]
+    console.log(books[1].title)
+    console.log(books[2].author.firstName)
+    console.log(books[4].author.lastName)
 
     /**
      * TODO:
