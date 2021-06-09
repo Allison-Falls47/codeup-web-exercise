@@ -48,16 +48,16 @@ person.sayHello = function(){
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320},
      ];
-function discount(){
-    shoppers.forEach(function(shopper) {
-     if (shopper.amount >200){
-         console.log(shopper.name + " " + "amount spent: " + shopper.amount);
-         console.log("You got a 12% discount!")
-         console.log("amount after discount: " + ((shopper.amount)-(shopper.amount * .12)));
-     }
-    });
-}
-discount();
+     shoppers.forEach (function(shopper) {
+         if (shopper.amount <= 200) {
+             let amount = shopper.amount;
+             console.log(shopper.name + " owes $" + amount.toFixed(2));
+         } else {
+             let discount = shopper.amount * .12;
+             let amount = shopper.amount - discount;
+             console.log(shopper.name + " spent $" + shopper.amount + " get a discount of $" + discount.toFixed(2) + " and owes $" + amount.toFixed(2));
+         }
+     });
     /**
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -135,16 +135,38 @@ var books = [
      *      ---
      *      ...
      */
+    console.log("");
+     books.forEach(function (book,index) {
+         console.log(" Book#",index+1);
+         console.log("Title: " + book.title);
+         console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+         console.log("---");
+     });
+         /**
+          * Bonus:
+          * - Create a function named `createBook` that accepts a title and author
+          *   name and returns a book object with the properties described
+          *   previously. Refactor your code that creates the books array to instead
+          *   use your function.
+          * - Create a function named `showBookInfo` that accepts a book object and
+          *   outputs the information described above. Refactor your loop to use your
+          *   `showBookInfo` function.
+          */
 
-    /**
-     * Bonus:
-     * - Create a function named `createBook` that accepts a title and author
-     *   name and returns a book object with the properties described
-     *   previously. Refactor your code that creates the books array to instead
-     *   use your function.
-     * - Create a function named `showBookInfo` that accepts a book object and
-     *   outputs the information described above. Refactor your loop to use your
-     *   `showBookInfo` function.
-     */
+         function createBook(title, author) {
+            let name = author.split(" ");
+             console.log(name[0]);
+             console.log(name[1]);
+             let firstName = name[0];
+             let lastName = name[1];
+             return {
+                 title : title,
+                 author: {
+                     firstName: firstName,
+                     lastName: lastName,
+                 }
+             }
+         }
 
+         console.log(createBook("1984", "George Orwell"));
 })();
