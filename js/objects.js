@@ -112,7 +112,7 @@ var books = [
     console.log(books[4].author.lastName)
 
     /**
-     * TODO:
+
      * Loop through the books array and output the following information about
      * each book:
      * - the book number (use the index of the book in the array)
