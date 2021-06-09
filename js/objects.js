@@ -155,8 +155,6 @@ var books = [
 
          function createBook(title, author) {
             let name = author.split(" ");
-             console.log(name[0]);
-             console.log(name[1]);
              let firstName = name[0];
              let lastName = name[1];
              return {
