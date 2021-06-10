@@ -1,23 +1,25 @@
-(function() {
+///(function() {
     "use strict";
 
     // create a circle object
     var circle = {
-        radius: 3,
+        radius: 5,
 
         getArea: function () {
             //
             // hint: area = pi * radius^2
-            let area = ((Math.PI) * (Math.pow(this.radius, 2)));
-            return area;
+            return  Math.PI * Math.pow(this.radius, 2);
+
         },
 
         logInfo: function (doRounding) {
 
-            let area = this.getArea();
-            if (doRounding) {
-                console.log("Area of a circle with radius: " + this.radius + ", is: " + Math.round(area));
-            }
+           if (doRounding){
+               console.log("Area of a circle with radius: " + Math.round(this.radius) + ", is: " + Math.round(this.getArea()));
+           }
+           else{
+               console.log("Area of a circle with radius: " + Math.round(this.radius) + ", is: " + this.getArea());
+           }
 
             // If doRounding is true, round the result to the nearest integer.
             // Otherwise, output the complete value
@@ -40,4 +42,4 @@
     circle.logInfo(true);
 
     console.log(circle.getArea());
-})();
+//})();
