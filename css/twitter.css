@@ -73,6 +73,20 @@ a {
 .container{
     padding: 2em;
 }
+
+.media{
+    width: 100% ;
+    background-color: white;
+    border: 1px black;
+    padding: .5em;
+    overflow: auto;
+}
+
+.media-image{
+    max-width: 50px;
+    margin-block: 1.33em;
+}
+
 .btn {
     border: 1px solid var(--main-link-color);
     color: var(--main-link-color);
