@@ -23,7 +23,7 @@ nav a {
 
 }
 a:hover {
-    background: deepskyblue;
+    color: deepskyblue;
 }
 ul li:nth-child(5) {
     margin-left: auto;
