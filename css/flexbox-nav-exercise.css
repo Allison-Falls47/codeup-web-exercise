@@ -20,18 +20,23 @@ nav a {
     display: inline-block;
     padding: 1em;
 }
-nav a:hover {
+a:hover {
     background: deepskyblue;
 }
-nav ul li:nth-child(5) {
+ul li:nth-child(5) {
     margin-left: auto;
 }
 
-.logo-div{
+ul li:nth-child(6) {
+    margin-left: auto;
+}
+
+.logo  {
     font-family: Montserrat;
     padding: .2em 0;
     font-size: 3em;
-    display: inline-block;
+    display: flex;
     justify-content: center;
+    flex-grow: 1;
 }
 
