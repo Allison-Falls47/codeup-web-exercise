@@ -17,4 +17,10 @@ h1{
     opacity: 80%;
     width: 100%;
     justify-content: center;
+
+}
+
+.btnPlace{
+    display: flex;
+    justify-content: flex-end;
 }
