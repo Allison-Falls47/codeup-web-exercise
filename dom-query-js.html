@@ -44,16 +44,21 @@
         var listItems = document.getElementsByTagName('LI');
 
 
-        listItems[0].style.color= '#7d7d7d';
-        listItems[2].style.color= '#7d7d7d';
-        listItems[4].style.color= '#7d7d7d';
+        listItems[1].style.color= '#7d7d7d';
+        listItems[3].style.color= '#7d7d7d';
 
-        // TODO: Set text color of li with dbid = 1 to blue
 
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = ;
 
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        listItems[0].style.color= '#2e5fdb';
+
+
+         var subParagraphs = document.getElementsByClassName("sub-paragraph") ;
+
+
+        for (var i = 0; i < subParagraphs.length; i++) {
+            subParagraphs[i].innerText = "Mission Accomplished!"
+        }
+
     })();
 </script>
 </body>
