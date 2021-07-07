@@ -75,6 +75,6 @@ var personThree = {
 }
 
 personThree.intro = function(){
-    console.log(personThree.firstName + " " + personThree.lastName)
+    console.log("Hello, My name is "  + personThree.firstName + " " + personThree.lastName + " and I am 25 years old")
 };
 personThree.intro();
