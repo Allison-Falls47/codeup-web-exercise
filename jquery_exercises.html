@@ -8,26 +8,23 @@
 <body>
 
 <h1 id="code-up">Hello there!</h1>
-<div class="alert">
+<div class="codeup">
     <h3>WARNING</h3>
     <p>Beware of mysterious messages</p>
 </div>
-<div class="another-div">
+<div class="codeup">
     <h2>Amazing</h2>
     <p>
         This is another div
     </p>
-    <p id="a-para">Another paragraph</p>
+    <p class="codeup">Another paragraph</p>
 </div>
 
 <script src="js/jquery-2.2.4.min.js"></script>
 <script>
     "use strict"
  $(document).ready(function(){
-     var contents = $('#code-up').html();
-     alert(contents);
-     var contents2 = $('#a-para').html();
-     alert(contents2);
+     $('.codeup').css('border', '1px solid red');
 
 //alert("finished loading")
 })
