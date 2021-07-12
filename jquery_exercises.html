@@ -29,11 +29,22 @@
 <script>
     "use strict"
  $(document).ready(function(){
-     var contents = $('h1').html();
-     alert(contents);
-     $('li').css('font-size', '20px');
-     $('h1, p, li').css("background-color", "yellow")
-//alert("finished loading")
+
+     $('#code-up').click(function() {
+         $(this).css('background-color', '#618ee8');
+     });
+
+     $('p').dblclick(function(e) {
+         $('p').css('font-size', '18px');
+     });
+     $('li').hover(
+         function() {
+             $(this).css('color', '#d5122b');
+         },
+         function() {
+             $(this).css('color', '#000000');
+         }
+     );
 })
 </script>
 </body>
