@@ -86,7 +86,7 @@ return {
 }
 console.log(numberInfo(-1));
 console.log(numberInfo(6));
-console.log(numberInfo(0));
+console.log(numberInfo(1));
 
 function removedDuplicates(arrayOfStrings){
     return [...new Set(arrayOfStrings)]
