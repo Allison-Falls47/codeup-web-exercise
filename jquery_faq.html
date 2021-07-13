@@ -11,6 +11,9 @@
     .highlight {
       background: yellow;
     }
+    .bold {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -47,6 +50,28 @@
   <dd>AYou can view maps on specific park websites or find national park, National Park System, National Trails System, and other maps.</dd>
 </dl>
 
+<h3> Capulin Volcano </h3>
+<ul id="new-mexico">
+  <li>View of four states</li>
+  <li>Darkest Night sky in the country</li>
+  <li>8000 Square Mile</li>
+  <li>Fertile soil from the old ash</li>
+</ul>
+<h3>Canyon De Chelly</h3>
+<ul id="arizona">
+  <li>People lived in the canyon 5,000 years ago</li>
+  <li>Village was called Tsegi</li>
+  <li>Home of the Navajo</li>
+  <li>The Navajo nation still thrives today in the canyon</li>
+</ul>
+<h3>Big Cypress</h3>
+<ul id="florida">
+  <li>Important to the health of the everglades</li>
+  <li>Freshwater to the sea</li>
+  <li>729,000 acres of vast swamp</li>
+  <li>Contains a mixture of tropical and temperate plant communities that are home to diverse wildlife, including the Endangered Florida panther.</li>
+</ul>
+<button id="button">Button</button>
 <script>
   "use strict"
   $("dd").addClass("invisible");
@@ -55,6 +80,18 @@
   });
   $( "dt" ).click(function() {
     $( this ).toggleClass( "highlight" );
+  });
+
+  $( "#button" ).click(function() {
+    $('li:first-child').css('background-color', '#ffd559');
+  });
+
+  $( "h3" ).click(function() {
+    $( "li" ).toggleClass( "bold" );
+  });
+
+  $( "li" ).click(function() {
+    $('li:first-child').css("color", '#1061e7');
   });
 </script>
 </body>
