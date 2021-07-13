@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>National Parks</title>
   <style>
-    dd {
+    .invisible {
       visibility: hidden;
     }
 
@@ -47,12 +47,9 @@
 
 <script>
   "use strict"
-      $("dd").addClass("invisible");
-  $('document').ready(function() {
-    $('#content').click(function(event) {
-      event.preventDefault();
-      $("dd").toggleClass('invisible');
-    });
+  $("dd").addClass("invisible");
+  $( "#content" ).click(function() {
+    $( "dd" ).toggleClass( "invisible" );
   });
 </script>
 </body>
