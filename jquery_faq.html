@@ -8,7 +8,9 @@
     .invisible {
       visibility: hidden;
     }
-
+    .highlight {
+      background: yellow;
+    }
   </style>
 </head>
 <body>
@@ -50,6 +52,9 @@
   $("dd").addClass("invisible");
   $( "#content" ).click(function() {
     $( "dd" ).toggleClass( "invisible" );
+  });
+  $( "dt" ).click(function() {
+    $( this ).toggleClass( "highlight" );
   });
 </script>
 </body>
