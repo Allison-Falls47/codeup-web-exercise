@@ -26,7 +26,7 @@
     geocode("11551 University Blvd, Orlando, FL 32817", mapboxAPIKey).then(function(result) {
         console.log(result);
         map.setCenter(result);
-        map.setZoom(15);
+        map.setZoom(12);
     });
 
     var marker = new mapboxgl.Marker()
@@ -39,6 +39,42 @@
 
     marker.setPopup(pizzaPopup)
 
+    var otherTwo = {
+        'type': 'FeatureCollection',
+        'features': [
+            {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-81.20044577628914, 28.601694758025502]
+                },
+                'properties': {
+                    'title': 'Mapbox',
+                    'description': "Chili's"
+                }
+            },
+            {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-81.20837758514921, 28.59926237893127]
+                },
+                'properties': {
+                    'title': 'Mapbox',
+                    'description': 'Island Wing Company'
+                }
+            }
+        ]
+    };
+    otherTwo.features.forEach(function (joe) {
+        var marker = new mapboxgl.Marker()
+            .setLngLat(joe.geometry.coordinates)
+            .addTo(map);
+        var pizzaPopup = new mapboxgl.Popup()
+            .setHTML(joe.properties.description)
+
+        marker.setPopup(pizzaPopup)
+    })
 </script>
 
 </body>
