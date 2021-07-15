@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <title>Online Store</title>
 </head>
 <body>
@@ -19,31 +20,39 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 
 <script>
 (function() {
     "use strict";
-    $.ajax("data/inventory.json").done(function(data, status, jqXhr) {
-        alert("AJAX call completed successfully!");
-        console.log("Request status: " + status);
-        console.log("Data returned from server:");
-        console.log(data);
-    });
+
+    getData()
+
+    function getData() {
+        $.ajax("data/inventory.json").done(function (data) {
+            var html = "";
+            $("#insertProducts").empty();
+            data.forEach(function (tool) {
+//console.log(tool);
+                html = <tr>
+                    <td>${tool.title}</td>
+                    <td>${tool.quantity}</td>
+                    <td>${tool.price}</td>
+                    <td>${tool.categories}</td>
+                </tr>;
+
+                $('#insertProducts').append(html);
+            })
+        }).fail(function (error) {
+            console.log("Error object: " + error);
+        })
+    }
+    $("#refresh").click(getData);
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
-    $.ajax("data/inventory.json", {
-        type: "GET",
-        dataType: "json"
-    }).done(function(data, status, jqXhr) {
-            for (let i = 0; i < data.length; i++) {
-                var currentUser = data[i]
-                console.log(currentUser)
-                $("#insertProducts").append("<th>" + currentUser.title + " " + currentUser.quantity + " " + currentUser.price + currentUser.categories + "</th>")
-            }
-    });
+
 })();
 </script>
 
