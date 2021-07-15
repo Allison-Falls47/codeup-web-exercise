@@ -34,12 +34,12 @@
             $("#insertProducts").empty();
             data.forEach(function (tool) {
 //console.log(tool);
-                html = <tr>
+                html = '<tr>
                     <td>${tool.title}</td>
                     <td>${tool.quantity}</td>
                     <td>${tool.price}</td>
                     <td>${tool.categories}</td>
-                </tr>;
+                    </tr>';
 
                 $('#insertProducts').append(html);
             })
