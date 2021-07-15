@@ -12,6 +12,7 @@
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
     </style>
 <body>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <style>
     #menu {
         position: absolute;
@@ -39,12 +40,17 @@
 <div id='map2' style='width: 98vw; height: 98vh;'></div>
 <script src = "./js/keys.js"></script>
 <script>
+    accessToken = mapboxAPIKey
     mapboxgl.accessToken = mapboxAPIKey
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
         center: [-98.4916, 29.4252]
+    });
+    reverseGeocode({lng: -98.4861, lat: 29.4260}, accessToken).then(function(results) {
+        // logs the address for The Alamo
+        console.log(results);
     });
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
