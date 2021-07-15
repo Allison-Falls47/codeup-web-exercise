@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+<script src="js/mapbox-geocoder-utils.js"></script>
+<div id='map' style='width: 98vw; height: 98vh;'></div>
+<script src = "./js/keys.js"></script>
+<script>
+    accessToken = mapboxAPIKey
+    mapboxgl.accessToken = mapboxAPIKey
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-81.21954227116788, 28.59818500000003]
+  });
+    geocode("11551 University Blvd, Orlando, FL 32817", mapboxAPIKey).then(function(result) {
+        console.log(result);
+        map.setCenter(result);
+        map.setZoom(15);
+    });
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-81.21954227116788, 28.59818500000003])
+        .addTo(map);
+
+    var pizzaPopup = new mapboxgl.Popup()
+        .setHTML("<p>Lazy Moon Pizza!</p>")
+
+
+    marker.setPopup(pizzaPopup)
+
+</script>
+
+</body>
+</html>
