@@ -20,7 +20,7 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
-
+<button id="refresh">Reload Tool Data</button>
 
 <script>
 (function() {
@@ -34,12 +34,12 @@
             $("#insertProducts").empty();
             data.forEach(function (tool) {
 //console.log(tool);
-                html = '<tr>
-                    <td>${tool.title}</td>
-                    <td>${tool.quantity}</td>
-                    <td>${tool.price}</td>
-                    <td>${tool.categories}</td>
-                    </tr>';
+                html = `<tr>
+                            <td>${tool.title}</td>
+                            <td>${tool.quantity}</td>
+                            <td>${tool.price}</td>
+                            <td>${tool.categories}</td>
+                        </tr>`;
 
                 $('#insertProducts').append(html);
             })
@@ -47,6 +47,7 @@
             console.log("Error object: " + error);
         })
     }
+    setInterval(getData, 3000);
     $("#refresh").click(getData);
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect

@@ -11,19 +11,27 @@
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
-    (function(){
-    "use strict"
-        $.ajax("/some-url").done(function (data, status, jqXhr) {
+    (function() {
+        "use strict";
+
+
+        $.ajax("data/blog.json").done(function(data) {
             console.log(data);
             var html = '';
-            data.forEach(function(post) {
-    html = <div>
-            <h3>${post.title}</h3>
-                <h5>${post.title}</h5>
-                <p>${post.title}</p>
-        </div>;
-                $('#posts'.append(html));
+
+            data.forEach(function (post) {
+                var categoryString = post.categories.join(", ")
+                html = `<div>
+                            <h3>${post.title}</h3>
+                            <h5>${post.date}</h5>
+                            <p>${post.content}</p>
+                            <p>${categoryString}</p>
+                        </div>`;
+
+                $('#posts').append(html);
             })
+
+
 
         }).fail(function (jqXhr, status, error) {
             alert("There was an error! Check the console for details");
