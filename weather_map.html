@@ -3,20 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Weather Map</title>
+  <link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body>
 
+<div id = "weather"></div>
 
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/keys.js"></script>
 <script>
   "use strict"
   $(document).ready(function() {
-    $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=81.3792&lon=28.5383&exclude=daily&appid=aa829a3fc35c517e2c87d407fdfed0d4`, {
+    $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=81.3792&lon=28.5383&exclude=hourly&appid=aa829a3fc35c517e2c87d407fdfed0d4`, {
+      units: "imperial"
     }).done(function(data) {
-      console.log(data);
-    });
+      var html = "";
+      $("#weather").empty();
+      data.daily.forEach(function (day, index) {
+        if ( index < 5) {
+          html = `<div>
+                            <p>${new Date(day.dt * 1000)}</p>
+                            <p>Temperature: ${day.temp.day}</p>
+                            <p>Humidity: ${day.humidity}</p>
+                            <p>Description: ${day.weather[0].description}</p>
+                            <p>Wind: ${day.wind_speed}</p>
+                            <p>Pressure: ${day.pressure}</p>
+                        </div>`;
+          $('#weather').append(html);
+        }
+
+      })
+    })
   })
+
 </script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+
+
+div{
+    width: 320px;
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid gray;
+
+}
+
+
+p {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid Black;
+    margin: 10px;
+}
