@@ -73,6 +73,9 @@ weatherData()
         latitude = result[1]
         map.setCenter(result)
         weatherData()
+        var marker = new mapboxgl.Marker()
+                .setLngLat([result[0], result[1]])
+                .addTo(map);
       });
     })
   })
