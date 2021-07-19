@@ -13,16 +13,16 @@
 <h3>Weather Map</h3>
 
 <form>
-  <input type="text" id="cityName" placeholder="Enter a city name"><br>
+  <label for="cityName"></label><input type="text" id="cityName" placeholder="Enter a city name"><br>
   <input type="submit" value="submit" id="weather_data">
 </form>
 
 <div id = "weather"></div>
 
-<script src="js/mapbox-geocoder-utils.js"></script>
 <div id='map' style='width: 98vw; height: 50vh;'></div>
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script>
   "use strict"
   mapboxgl.accessToken = mapboxAPIKey
@@ -65,9 +65,14 @@ weatherData()
         })
       })
     }
-    $("#weather_data").click(function(){
-      geocode($("#cityName"), mapboxAPIKey).then(function(result) {
+    $("#weather_data").click(function(e){
+      e.preventDefault();
+      geocode($("#cityName").val(), mapboxAPIKey).then(function(result) {
         console.log(result)
+        longitude = result[0]
+        latitude = result[1]
+        map.setCenter(result)
+        weatherData()
       });
     })
   })
