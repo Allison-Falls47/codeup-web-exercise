@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Weather Map</title>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
 
-  <link rel="stylesheet" href="css/weather_map.css">
+    <link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body>
 
 <h3>Weather Map</h3>
 
 <form>
-  <label for="cityName"></label><input type="text" id="cityName" placeholder="Enter a city name"><br>
-  <input type="submit" value="submit" id="weather_data">
+    <label for="cityName"></label><input type="text" id="cityName" placeholder="Enter a city name"><br>
+    <input type="submit" value="submit" id="weather_data">
 </form>
 
-<div id = "weather"></div>
+<div id="weather"></div>
 
-<div id='map' style='width: 98vw; height: 50vh;'></div>
-<script src="js/jquery-2.2.4.min.js"></script>
-<script src="js/keys.js"></script>
-<script src="js/mapbox-geocoder-utils.js"></script>
-<script>
-  "use strict"
-  mapboxgl.accessToken = mapboxAPIKey
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 10,
-    center: [-81.21954227116788, 28.59818500000003]
-  });
-  $(document).ready(function() {
-    var longitude = -81.21954227116788
-    var latitude = 28.59818500000003
-weatherData()
-    function weatherData() {
-      $.get(`https://api.openweathermap.org/data/2.5/onecall?`, {
-        appid: openWeatherAPIKey,
-        lon: longitude,
-        lat: latitude,
-        units: "imperial"
-      }).done(function (data) {
-        var html = "";
-        $("#weather").empty();
-        data.daily.forEach(function (day, index) {
-          if (index < 5) {
-            html = `<div id = "full">
+<div id='map' style='width: 98vw; height: 50vh;'> </div>
+    <pre id="coordinates" class="coordinates"></pre>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/keys.js"></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <script>
+        "use strict"
+        var coordinates = document.getElementById('coordinates');
+        mapboxgl.accessToken = mapboxAPIKey
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 10,
+            center: [-81.21954227116788, 28.59818500000003]
+        });
+        $(document).ready(function () {
+            var longitude = -81.21954227116788
+            var latitude = 28.59818500000003
+            weatherData(longitude, latitude);
+
+            function weatherData(long, lat) {
+                $.get(`https://api.openweathermap.org/data/2.5/onecall?`, {
+                    appid: openWeatherAPIKey,
+                    lon: long,
+                    lat: lat,
+                    units: "imperial"
+                }).done(function (data) {
+                    var html = "";
+                    $("#weather").empty();
+                    data.daily.forEach(function (day, index) {
+                        if (index < 5) {
+                            html = `<div id = "full">
                               <p id = "head">${new Date(day.dt * 1000)}</p>
                               <hr>
                               <p>Temperature: ${day.temp.day}</p>
@@ -60,26 +63,39 @@ weatherData()
                                 <hr>
                               <p>Pressure: ${day.pressure}</p
                           </div>`;
-            $('#weather').append(html);
-          }
-        })
-      })
-    }
-    $("#weather_data").click(function(e){
-      e.preventDefault();
-      geocode($("#cityName").val(), mapboxAPIKey).then(function(result) {
-        console.log(result)
-        longitude = result[0]
-        latitude = result[1]
-        map.setCenter(result)
-        weatherData()
-        var marker = new mapboxgl.Marker()
-                .setLngLat([result[0], result[1]])
-                .addTo(map);
-      });
-    })
-  })
+                            $('#weather').append(html);
+                        }
+                    })
+                })
+            }
 
-</script>
+            $("#weather_data").click(function (e) {
+                e.preventDefault();
+                geocode($("#cityName").val(), mapboxAPIKey).then(function (result) {
+                    console.log(result)
+                    longitude = result[0]
+                    latitude = result[1]
+                    map.setCenter(result)
+                    weatherData(longitude, latitude);
+                    var marker = new mapboxgl.Marker({
+                        draggable: true
+                    })
+                        .setLngLat([result[0], result[1]])
+                        .addTo(map);
+
+                    function onDragEnd() {
+                        var lngLat = marker.getLngLat();
+                        //coordinates.style.display = 'block';
+                        coordinates.innerHTML =
+                            'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+                        weatherData(lngLat.lng, lngLat.lat)
+                    }
+
+                    marker.on('dragend', onDragEnd);
+                });
+            })
+        })
+
+    </script>
 </body>
 </html>
