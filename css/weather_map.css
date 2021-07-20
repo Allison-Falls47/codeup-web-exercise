@@ -16,13 +16,23 @@ display: flex;
     margin: 10px;
 }
 
-h3 {
+h6{
+    display:flex;
+    background-color: #99c7ea;
+    padding: 1em;
+    color: #ffffff;
+    margin: 0;
+    width: 98%;
+}
+
+#current {
     width: 97%;
     display:flex;
     background-color: #0d92f5;
     padding: 1em;
     color: #ffffff;
-    margin: 0
+    margin: 0;
+
 }
 
 #head {

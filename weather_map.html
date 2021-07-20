@@ -7,14 +7,25 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
 
     <link rel="stylesheet" href="css/weather_map.css">
+    <script>
+        function showInput() {
+            document.getElementById('display').innerHTML =
+                document.getElementById("cityName").value;
+        }
+    </script>
 </head>
 <body>
 
-<h3>Weather Map</h3>
+<div id = "current">
+    <h3>Weather Map</h3>
+</div>
+
+<label>Current City: </label>
+<p><span id='display'></span></p>
 
 <form>
     <label for="cityName"></label><input type="text" id="cityName" placeholder="Enter a city name"><br>
-    <input type="submit" value="submit" id="weather_data">
+    <input type="submit" value="submit" id="weather_data" onclick="showInput();">
 </form>
 
 <div id="weather"></div>
