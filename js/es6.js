@@ -74,12 +74,9 @@ const [name, email, languages] = users
 let list = '<ul>';
 
 // TODO: rewrite the following loop to use a for..of loop
-developers.forEach(function (developer) {
+for (const developer of developers) {
 
-  for (const developer of list) {
-
-  }
   // TODO: rewrite the assignment below to use template strings
-  list += '<li>' + developer + '</li>';
-});
+  list += (`<li> ${developer} </li>`)
+}
 list += '</ul>';
