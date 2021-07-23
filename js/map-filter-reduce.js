@@ -52,7 +52,21 @@ const averageExp = users.reduce((total, person) => {
 }, 0);
 console.log(averageExp)
 
-const longEm = users.reduce((largest, person) => {
-   return largest.length < person.email.length
-},0)
-console.log(longEm)
+let longEm = users.reduce(function (currentLong, user){
+    if (user.email.length > currentLong.email.length) {
+        return user;
+    }else{
+        return currentLong;
+    }
+}, users[0])
+console.log(longEm.email)
+
+let nameString = users.reduce(function(accumulator, user){
+    if (accumulator === ''){
+        return "Your instructors are : " + user.name
+    }else{
+        return accumulator + ', ' + user.name;
+    }
+},'')
+
+console.log(nameString + ".")
